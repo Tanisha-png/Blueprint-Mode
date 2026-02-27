@@ -3,10 +3,12 @@ async function popupMsg() {
     let queryOptions = { active: true, currentWindow: true };
     let [tab] = await chrome.tabs.query(queryOptions);
     console.log(tab)
-    console.log([tab])
-
-    const layoutBtn = document.querySelector("btn")
+    let tabId = tab.id
+    console.log(tabId)
+    const layoutBtn = document.querySelector("#btn")
     layoutBtn.addEventListener('click', (event) => {
-
+        chrome.tabs.sendMessage(tabId, {activate: true})
     });
 }
+
+popupMsg()
