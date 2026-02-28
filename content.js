@@ -4,7 +4,7 @@ console.log("content script running...")
 chrome.runtime.onMessage.addListener((message) => {
     // console.log(message.activate) // True
     if (message.activate === true) {
-        document.body.style.transition = 'background-color 0.7s ease';
+        document.body.style.transition = 'background-color 0.7s ease-in-out';
 
         setTimeout(() => {
             document.body.style.backgroundColor = "#0241A2";
